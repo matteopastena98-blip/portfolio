@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Pastena — AI marketing automation</title>
+<meta name="description" content="Matteo Pastena builds AI automations for marketing and lead generation: Claude, Python and APIs, with checks, logs and human review in every step. Moving to Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="wordmark" href="#top">Matteo Pastena</a>
+  <nav aria-label="Main">
+    <a href="#demo">The pipeline</a>
+    <a href="#errors">Error handling</a>
+    <a href="#about">About</a>
+    <a class="btn btn-teal btn-small" href="assets/Matteo-Pastena-CV.pdf">Download CV</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>AI automations for marketing</h1>
+        <p class="lead">I'm Matteo Pastena, a marketer from Naples moving to Berlin. I build Claude and Python workflows for lead generation and content, with a check on every step and a person signing off at the end.</p>
+        <p class="actions">
+          <a class="btn btn-teal" href="#demo" data-play>Watch the pipeline run</a>
+          <a class="btn btn-ghost" href="assets/Matteo-Pastena-CV.pdf">Download CV</a>
+        </p>
+        <ul class="facts">
+          <li><b>48</b> deliverable leads from 379 live ads</li>
+          <li><b>10</b> automated gates before delivery</li>
+          <li><b>EU</b> citizen, no visa needed</li>
+        </ul>
+      </div>
+
+      <!-- Live demo: replays the real run of 1 Sept 2026 -->
+      <div class="app" id="demo" data-ui aria-labelledby="app-title">
+        <div class="app-top">
+          <div>
+            <h2 id="app-title">Lead pipeline · run of 1 Sept 2026</h2>
+            <p class="app-sub">Meta Ad Library → qualified leads, for a Milan performance agency</p>
+          </div>
+          <span class="status" id="status">Finished</span>
+        </div>
+
+        <div class="app-body">
+          <ol class="stages" id="stages">
+            <li data-n="379" data-log="379 live ads collected · 18 keywords"><span class="dot"></span><span class="sname">Collect live ads</span><b>379</b><i style="--w:1"></i></li>
+            <li data-n="348" data-log="31 ads declare no website → dropped"><span class="dot"></span><span class="sname">Read ad destination</span><b>348</b><i style="--w:.918"></i></li>
+            <li data-n="127" data-log="348 ads → 127 unique company domains"><span class="dot"></span><span class="sname">Deduplicate companies</span><b>127</b><i style="--w:.335"></i></li>
+            <li data-n="116" data-log="HTTP status logged per request · 11 sites unreachable"><span class="dot"></span><span class="sname">Snapshot each site</span><b>116</b><i style="--w:.306"></i></li>
+            <li data-n="84" data-log="VAT read inside the saved snapshot, never inferred"><span class="dot"></span><span class="sname">Find VAT number</span><b>84</b><i style="--w:.222"></i></li>
+            <li data-n="78" data-log="EU VIES answer logged for every company"><span class="dot"></span><span class="sname">Check EU VIES register</span><b>78</b><i style="--w:.206"></i></li>
+            <li data-n="55" data-log="Region proven by VIES or the published address"><span class="dot"></span><span class="sname">Prove the region</span><b>55</b><i style="--w:.145"></i></li>
+            <li data-n="48" data-log="48 rows pass all 10 gates · sent to human review"><span class="dot"></span><span class="sname">Gates + human review</span><b>48</b><i style="--w:.127"></i></li>
+          </ol>
+
+          <div class="side">
+            <div class="kpi">
+              <p class="kpi-n" id="kpi">48</p>
+              <p class="kpi-l" id="kpi-l">companies still in the run</p>
+            </div>
+            <div class="record" id="record">
+              <p class="record-h">Example record <span id="rec-name">studio-esempio.it</span></p>
+              <ul id="rec-fields">
+                <li class="ok">Ad ID re-read in saved page</li>
+                <li class="ok">Domain from the ad, not guessed</li>
+                <li class="ok">VAT found in site snapshot</li>
+                <li class="ok">VIES confirms identity</li>
+                <li class="ok">Region proven by address</li>
+                <li class="ok">Contact name re-read in source</li>
+              </ul>
+              <p class="verdict ok" id="verdict">Delivered</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="log-wrap">
+          <p class="log-h">Run log</p>
+          <ol class="log" id="log" aria-live="polite">
+            <li><time>1/8</time>379 live ads collected · 18 keywords</li>
+            <li><time>8/8</time>48 rows pass all 10 gates · sent to human review</li>
+          </ol>
+        </div>
+
+        <div class="app-actions">
+          <button class="btn btn-blue" type="button" id="play">Replay the run</button>
+          <button class="btn btn-ghost" type="button" id="break">Simulate a failure</button>
+          <p class="note">Counts are from the real second run; the example records and the failure are illustrative.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="how-h">
+    <div class="wrap two">
+      <div>
+        <h2 id="how-h" data-rise>What the pipeline does</h2>
+        <p class="lead-s" data-rise>The agency wanted prospects that already spend on ads, in its own region, with a real company behind them. By hand that list took days and was full of guesses.</p>
+      </div>
+      <div class="cards">
+        <article class="card" data-rise><h3>Input</h3><p>Advertisers live in the Meta Ad Library for 18 keywords the client sells to.</p></article>
+        <article class="card" data-rise><h3>Automated</h3><p>One Python pass written with Claude Code: destination domain, site snapshot, VAT number, EU VIES check, region proof, named contact and published phone, score.</p></article>
+        <article class="card" data-rise><h3>Result</h3><p>48 deliverable leads, a 12.7% yield. The first run, about 27 machine minutes, became the basis of the client's quote.</p></article>
+        <article class="card" data-rise><h3>What it changed</h3><p>78 companies published a phone, 1 a findable personal email. The data moved the campaign to the phone.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint" id="errors" aria-labelledby="err-h">
+    <div class="wrap two">
+      <div>
+        <h2 id="err-h" data-rise>How it handles errors</h2>
+        <p class="lead-s" data-rise>My automations are built to fail loudly and never fill a gap with a guess.</p>
+        <p data-rise><a class="btn btn-blue" href="#demo" data-break>Show a failure in the demo</a></p>
+      </div>
+      <ul class="checks">
+        <li data-rise><b>Gates re-read the data.</b> Ten validators re-read every delivered value inside the source page saved during the run and recompute every number from the raw files.</li>
+        <li data-rise><b>Drop, don't guess.</b> A row that fails a gate leaves the list. A missing VAT number stays missing.</li>
+        <li data-rise><b>Everything is logged.</b> HTTP status per request, the VIES answer per company, the reason for every drop.</li>
+        <li data-rise><b>Rate limits are expected.</b> In a 10,000-profile run for a fitness coach: backoff and retry, resumable output written one row at a time, and a circuit breaker that stops after 15 blocks with no data.</li>
+        <li data-rise><b>A person signs off.</b> A reviewer agent and I check the list before it reaches the client. When the coach said some profiles were off target, I added vetoes and a sample check before the next batch.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="also-h">
+    <div class="wrap">
+      <h2 id="also-h" data-rise>Also running</h2>
+      <div class="cards cards-4">
+        <article class="card" data-rise><h3>Cloud campaign</h3><p>A daily GitHub Actions workflow with one state file, so nobody is contacted twice and nothing depends on a laptop.</p></article>
+        <article class="card" data-rise><h3>Email checks</h3><p>MX, SPF and DMARC read through DNS-over-HTTPS before sending; bounce rate under 2% on client lists.</p></article>
+        <article class="card" data-rise><h3>Outreach assistant</h3><p>Drafts from each contact's record and thread, learns from my edits, holds every email until I approve it.</p></article>
+        <article class="card" data-rise><h3>AI design workflow</h3><p>One master visual per campaign, exported to post, story and 300-ppi print formats, finished to brand rules.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint" id="about" aria-labelledby="about-h">
+    <div class="wrap two">
+      <div>
+        <h2 id="about-h" data-rise>Where I am now</h2>
+        <p class="lead-s" data-rise>MSc in Communication at Federico II, Naples. Since 2020 social media and content; in 2026 SEO content for a B2B agency in Poznań, social channels for a live-events network in Malta, and automations for paying clients.</p>
+      </div>
+      <div>
+        <p data-rise>I have not shipped an n8n or Make workflow yet: I orchestrate with Python and GitHub Actions. In progress now:</p>
+        <ul class="courses" data-rise>
+          <li>n8n Academy, N8N101 to N8N103</li>
+          <li>HubSpot Academy, Inbound and Marketing Hub</li>
+          <li>Google Analytics certification</li>
+          <li>Anthropic Academy, Claude Code in Action</li>
+        </ul>
+        <p class="langs" data-rise>English C1 · Italian native · Spanish B1 · German A1–A2</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact-grid">
+      <h2 id="contact-h">Hiring in Berlin? Let's talk</h2>
+      <div class="contact-links">
+        <a class="btn btn-teal" href="mailto:matteo.pastena98@gmail.com?subject=Role%20in%20Berlin">matteo.pastena98@gmail.com</a>
+        <a href="https://www.linkedin.com/in/matteo-pastena">linkedin.com/in/matteo-pastena</a>
+        <a href="assets/Matteo-Pastena-CV.pdf">Download the CV (PDF)</a>
+        <p>Naples, relocating to Berlin. I reply within a day.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap"><p>© 2026 Matteo Pastena · Client names withheld</p></div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
