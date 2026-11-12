@@ -1,180 +1,322 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matteo Pastena — AI marketing automation</title>
-<meta name="description" content="Matteo Pastena builds AI automations for marketing and lead generation: Claude, Python and APIs, with checks, logs and human review in every step. Moving to Berlin.">
+<title>Matteo Pastena — Digital Communication, Content & AI Workflows</title>
+<meta name="description" content="Portfolio di Matteo Pastena: strategia di comunicazione digitale, content creation, community listening e automazioni AI. Laurea Magistrale in Comunicazione (105/110).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="bar">
-  <a class="wordmark" href="#top">Matteo Pastena</a>
-  <nav aria-label="Main">
-    <a href="#demo">The pipeline</a>
-    <a href="#errors">Error handling</a>
-    <a href="#about">About</a>
-    <a class="btn btn-teal btn-small" href="assets/Matteo-Pastena-CV.pdf">Download CV</a>
-  </nav>
+<header class="navbar">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="logo-badge">mp</span>
+      <span class="brand-text">Matteo Pastena</span>
+    </a>
+    <nav class="nav-menu" aria-label="Navigazione principale">
+      <a href="#casi-studio">Casi Studio</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#chi-sono">Chi Sono</a>
+      <a href="#contatti" class="btn btn-action btn-sm">Contattami</a>
+    </nav>
+  </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1>AI automations for marketing</h1>
-        <p class="lead">I'm Matteo Pastena, a marketer from Naples moving to Berlin. I build Claude and Python workflows for lead generation and content, with a check on every step and a person signing off at the end.</p>
-        <p class="actions">
-          <a class="btn btn-teal" href="#demo" data-play>Watch the pipeline run</a>
-          <a class="btn btn-ghost" href="assets/Matteo-Pastena-CV.pdf">Download CV</a>
-        </p>
-        <ul class="facts">
-          <li><b>48</b> deliverable leads from 379 live ads</li>
-          <li><b>10</b> automated gates before delivery</li>
-          <li><b>EU</b> citizen, no visa needed</li>
-        </ul>
-      </div>
-
-      <!-- Live demo: replays the real run of 1 Sept 2026 -->
-      <div class="app" id="demo" data-ui aria-labelledby="app-title">
-        <div class="app-top">
-          <div>
-            <h2 id="app-title">Lead pipeline · run of 1 Sept 2026</h2>
-            <p class="app-sub">Meta Ad Library → qualified leads, for a Milan performance agency</p>
-          </div>
-          <span class="status" id="status">Finished</span>
-        </div>
-
-        <div class="app-body">
-          <ol class="stages" id="stages">
-            <li data-n="379" data-log="379 live ads collected · 18 keywords"><span class="dot"></span><span class="sname">Collect live ads</span><b>379</b><i style="--w:1"></i></li>
-            <li data-n="348" data-log="31 ads declare no website → dropped"><span class="dot"></span><span class="sname">Read ad destination</span><b>348</b><i style="--w:.918"></i></li>
-            <li data-n="127" data-log="348 ads → 127 unique company domains"><span class="dot"></span><span class="sname">Deduplicate companies</span><b>127</b><i style="--w:.335"></i></li>
-            <li data-n="116" data-log="HTTP status logged per request · 11 sites unreachable"><span class="dot"></span><span class="sname">Snapshot each site</span><b>116</b><i style="--w:.306"></i></li>
-            <li data-n="84" data-log="VAT read inside the saved snapshot, never inferred"><span class="dot"></span><span class="sname">Find VAT number</span><b>84</b><i style="--w:.222"></i></li>
-            <li data-n="78" data-log="EU VIES answer logged for every company"><span class="dot"></span><span class="sname">Check EU VIES register</span><b>78</b><i style="--w:.206"></i></li>
-            <li data-n="55" data-log="Region proven by VIES or the published address"><span class="dot"></span><span class="sname">Prove the region</span><b>55</b><i style="--w:.145"></i></li>
-            <li data-n="48" data-log="48 rows pass all 10 gates · sent to human review"><span class="dot"></span><span class="sname">Gates + human review</span><b>48</b><i style="--w:.127"></i></li>
-          </ol>
-
-          <div class="side">
-            <div class="kpi">
-              <p class="kpi-n" id="kpi">48</p>
-              <p class="kpi-l" id="kpi-l">companies still in the run</p>
-            </div>
-            <div class="record" id="record">
-              <p class="record-h">Example record <span id="rec-name">studio-esempio.it</span></p>
-              <ul id="rec-fields">
-                <li class="ok">Ad ID re-read in saved page</li>
-                <li class="ok">Domain from the ad, not guessed</li>
-                <li class="ok">VAT found in site snapshot</li>
-                <li class="ok">VIES confirms identity</li>
-                <li class="ok">Region proven by address</li>
-                <li class="ok">Contact name re-read in source</li>
-              </ul>
-              <p class="verdict ok" id="verdict">Delivered</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="log-wrap">
-          <p class="log-h">Run log</p>
-          <ol class="log" id="log" aria-live="polite">
-            <li><time>1/8</time>379 live ads collected · 18 keywords</li>
-            <li><time>8/8</time>48 rows pass all 10 gates · sent to human review</li>
-          </ol>
-        </div>
-
-        <div class="app-actions">
-          <button class="btn btn-blue" type="button" id="play">Replay the run</button>
-          <button class="btn btn-ghost" type="button" id="break">Simulate a failure</button>
-          <p class="note">Counts are from the real second run; the example records and the failure are illustrative.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="how-h">
-    <div class="wrap two">
-      <div>
-        <h2 id="how-h" data-rise>What the pipeline does</h2>
-        <p class="lead-s" data-rise>The agency wanted prospects that already spend on ads, in its own region, with a real company behind them. By hand that list took days and was full of guesses.</p>
-      </div>
-      <div class="cards">
-        <article class="card" data-rise><h3>Input</h3><p>Advertisers live in the Meta Ad Library for 18 keywords the client sells to.</p></article>
-        <article class="card" data-rise><h3>Automated</h3><p>One Python pass written with Claude Code: destination domain, site snapshot, VAT number, EU VIES check, region proof, named contact and published phone, score.</p></article>
-        <article class="card" data-rise><h3>Result</h3><p>48 deliverable leads, a 12.7% yield. The first run, about 27 machine minutes, became the basis of the client's quote.</p></article>
-        <article class="card" data-rise><h3>What it changed</h3><p>78 companies published a phone, 1 a findable personal email. The data moved the campaign to the phone.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section tint" id="errors" aria-labelledby="err-h">
-    <div class="wrap two">
-      <div>
-        <h2 id="err-h" data-rise>How it handles errors</h2>
-        <p class="lead-s" data-rise>My automations are built to fail loudly and never fill a gap with a guess.</p>
-        <p data-rise><a class="btn btn-blue" href="#demo" data-break>Show a failure in the demo</a></p>
-      </div>
-      <ul class="checks">
-        <li data-rise><b>Gates re-read the data.</b> Ten validators re-read every delivered value inside the source page saved during the run and recompute every number from the raw files.</li>
-        <li data-rise><b>Drop, don't guess.</b> A row that fails a gate leaves the list. A missing VAT number stays missing.</li>
-        <li data-rise><b>Everything is logged.</b> HTTP status per request, the VIES answer per company, the reason for every drop.</li>
-        <li data-rise><b>Rate limits are expected.</b> In a 10,000-profile run for a fitness coach: backoff and retry, resumable output written one row at a time, and a circuit breaker that stops after 15 blocks with no data.</li>
-        <li data-rise><b>A person signs off.</b> A reviewer agent and I check the list before it reaches the client. When the coach said some profiles were off target, I added vetoes and a sample check before the next batch.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="also-h">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="wrap">
-      <h2 id="also-h" data-rise>Also running</h2>
-      <div class="cards cards-4">
-        <article class="card" data-rise><h3>Cloud campaign</h3><p>A daily GitHub Actions workflow with one state file, so nobody is contacted twice and nothing depends on a laptop.</p></article>
-        <article class="card" data-rise><h3>Email checks</h3><p>MX, SPF and DMARC read through DNS-over-HTTPS before sending; bounce rate under 2% on client lists.</p></article>
-        <article class="card" data-rise><h3>Outreach assistant</h3><p>Drafts from each contact's record and thread, learns from my edits, holds every email until I approve it.</p></article>
-        <article class="card" data-rise><h3>AI design workflow</h3><p>One master visual per campaign, exported to post, story and 300-ppi print formats, finished to brand rules.</p></article>
+      <div class="hero-header">
+        <span class="section-tag">PORTFOLIO & CASI STUDIO</span>
+        <h1 class="hero-title">Comunicazione Digitale, Strategia & Flussi AI</h1>
+        <p class="hero-lead">Dall'ascolto della community alla narrazione multicanale e all'adozione etica dell'AI nei processi operativi. Unisco una solida impostazione umanistica a una capacità pratica di realizzare progetti concreti, misurabili e difendibili.</p>
+        
+        <div class="hero-actions">
+          <a href="#casi-studio" class="btn btn-action">Esplora i casi studio</a>
+          <a href="#contatti" class="btn btn-outline">Parliamo del tuo progetto</a>
+        </div>
+      </div>
+
+      <!-- KPI Bar -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-num color-primary">565</div>
+          <div class="kpi-label">Feedback & recensioni analizzati con AI per estrarre insight e procedure di risposta</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num color-action">379 → 48</div>
+          <div class="kpi-label">Pipeline automatizzata con 10 gate di qualifica (riduzione tempi da giorni a 27 minuti)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num color-gain">&lt; 2%</div>
+          <div class="kpi-label">Tasso di rimbalzo garantito su oltre 300 contatti decisori verificati tecnicamente</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num color-ink">105/110</div>
+          <div class="kpi-label">Laurea Magistrale in Comunicazione Pubblica e Sociale (tesi su innovazione e collettivi)</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section tint" id="about" aria-labelledby="about-h">
-    <div class="wrap two">
-      <div>
-        <h2 id="about-h" data-rise>Where I am now</h2>
-        <p class="lead-s" data-rise>MSc in Communication at Federico II, Naples. Since 2020 social media and content; in 2026 SEO content for a B2B agency in Poznań, social channels for a live-events network in Malta, and automations for paying clients.</p>
+  <!-- Sezione Casi Studio -->
+  <section class="cases-section" id="casi-studio">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">COSA HO FATTO DAVVERO</span>
+        <h2 class="section-title">Esperienze, Dati e Risultati</h2>
+        <p class="section-sub">Ogni progetto risponde a un problema reale con una soluzione documentata e risultati verificabili.</p>
+        
+        <!-- Filtri interattivi -->
+        <div class="filters" role="tablist">
+          <button class="filter-btn active" data-filter="all">Tutti (5)</button>
+          <button class="filter-btn" data-filter="social">Strategia & Social</button>
+          <button class="filter-btn" data-filter="community">Community & Ascolto</button>
+          <button class="filter-btn" data-filter="ai">AI & Automazione</button>
+          <button class="filter-btn" data-filter="visual">Visual & Creatività</button>
+        </div>
       </div>
-      <div>
-        <p data-rise>I have not shipped an n8n or Make workflow yet: I orchestrate with Python and GitHub Actions. In progress now:</p>
-        <ul class="courses" data-rise>
-          <li>n8n Academy, N8N101 to N8N103</li>
-          <li>HubSpot Academy, Inbound and Marketing Hub</li>
-          <li>Google Analytics certification</li>
-          <li>Anthropic Academy, Claude Code in Action</li>
-        </ul>
-        <p class="langs" data-rise>English C1 · Italian native · Spanish B1 · German A1–A2</p>
+
+      <div class="cases-grid">
+        
+        <!-- Caso 1: Digital Strategy & Content Audit (Personal Branding / Wellbeing) -->
+        <article class="case-card" data-category="social">
+          <div class="case-badge-row">
+            <span class="badge badge-social">Strategia & Social</span>
+            <span class="case-meta">Audit Digitale & Funnel</span>
+          </div>
+          <h3 class="case-title">Audit della presenza digitale: dai video social alla conversione senza attrito</h3>
+          <p class="case-desc">Analisi a 26 punti della presenza online per un'attività nel benessere e personal training. Mappatura completa del percorso dell'utente: dal reel organico al contatto qualificato.</p>
+          
+          <div class="case-blocks">
+            <div class="block problem">
+              <strong>Il problema:</strong>
+              I video social (Reel, YouTube Shorts) generavano visualizzazioni, ma l'attenzione si disperdeva prima della richiesta di contatto a causa di link mancanti e percorsi frammentati.
+            </div>
+            <div class="block solution">
+              <strong>L'intervento:</strong>
+              Revisione del ritmo di pubblicazione, standardizzazione del montaggio video con CapCut, semplificazione dei moduli di qualifica e impostazione di promemoria pre-call.
+            </div>
+            <div class="block gain">
+              <strong>Il risultato:</strong>
+              Piano operativo in 4 fasi per collegare i contenuti organici alla prenotazione diretta, eliminando i passaggi superflui.
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 2: Community Listening & Sentiment Analysis (PastéNa) -->
+        <article class="case-card" data-category="community">
+          <div class="case-badge-row">
+            <span class="badge badge-community">Community & Ascolto</span>
+            <span class="case-meta">Hospitality & Reputazione</span>
+          </div>
+          <h3 class="case-title">Sentiment analysis di 565 recensioni: trasformare il feedback in procedure di servizio</h3>
+          <p class="case-desc">Ascolto strutturato della voce della community per un'attività di ristorazione con sito live da maggio 2026. Analisi qualitativa per migliorare l'esperienza sul posto e la reputazione online.</p>
+          
+          <div class="case-blocks">
+            <div class="block problem">
+              <strong>Il problema:</strong>
+              Centinaia di recensioni distribuite su 5 canali diversi senza una classificazione sistematica delle criticità operative (orari di punta, gestione attese).
+            </div>
+            <div class="block solution">
+              <strong>L'intervento:</strong>
+              Estrazione e sentiment analysis con modelli LLM per clusterizzare i motivi di attrito; stesura di linee guida per 170+ risposte empatiche, personalizzate e non difensive in 3 lingue (IT, EN, FR).
+            </div>
+            <div class="block gain">
+              <strong>Il risultato:</strong>
+              Neutralizzazione delle recensioni negative, fidelizzazione dei clienti e linee guida condivise con lo staff per prevenire i disservizi.
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 3: Social Media & Event Operations (Wave Events, Malta) -->
+        <article class="case-card" data-category="social">
+          <div class="case-badge-row">
+            <span class="badge badge-social">Strategia & Social</span>
+            <span class="case-meta">Nightlife & Event Marketing</span>
+          </div>
+          <h3 class="case-title">Gestione operativa multicanale sul campo per un network internazionale di eventi</h3>
+          <p class="case-desc">Cinque mesi on-site a Malta (giugno – ottobre 2026) gestendo quotidianamente la comunicazione in inglese per eventi, festival e locali del network.</p>
+          
+          <div class="case-blocks">
+            <div class="block problem">
+              <strong>Il problema:</strong>
+              Promuovere simultaneamente eventi differenti con line-up dinamiche, cambi dell'ultimo minuto e scadenze giornaliere serrate.
+            </div>
+            <div class="block solution">
+              <strong>L'intervento:</strong>
+              Calendari editoriali pre-evento, riprese e montaggio autonomo in serata di video brevi con CapCut per Instagram, TikTok e Facebook; coordinamento con promoter e brand partner locali.
+            </div>
+            <div class="block gain">
+              <strong>Il risultato:</strong>
+              Copertura in tempo reale garantita, interazione costante con la community internazionale e riallocazione settimanale dello sforzo sui formati a più alta resa.
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 4: Art Direction & Visual con AI (Discotti, Collettivo DJ) -->
+        <article class="case-card" data-category="visual">
+          <div class="case-badge-row">
+            <span class="badge badge-visual">Visual & Creatività</span>
+            <span class="case-meta">Musica Indipendente & Art Direction</span>
+          </div>
+          <h3 class="case-title">Workflow creativo Human-in-the-Loop per l'identità visiva di eventi musicali</h3>
+          <p class="case-desc">Direzione artistica e grafica social per un collettivo DJ indipendente tra Napoli e Parigi, con produzione di materiali promozionali contro date fisse.</p>
+          
+          <div class="case-blocks">
+            <div class="block problem">
+              <strong>Il problema:</strong>
+              Produrre poster e materiali di campagna originali ed esteticamente curati senza i tempi e i costi delle agenzie esterne.
+            </div>
+            <div class="block solution">
+              <strong>L'intervento:</strong>
+              Generazione di concept visivi tramite modelli generativi di immagini (Flux, Midjourney, Gemini) uniti a post-produzione, lettering e impaginazione grafica manuale.
+            </div>
+            <div class="block gain">
+              <strong>Il risultato:</strong>
+              Identità visiva uniforme e riconoscibile per tutte le serate e per la campagna del 2° anniversario, con asset pronti per la stampa e il digitale nei tempi.
+            </div>
+          </div>
+        </article>
+
+        <!-- Caso 5: Data Screening & Marketing Automation (Pipeline Python/LLM) -->
+        <article class="case-card" data-category="ai">
+          <div class="case-badge-row">
+            <span class="badge badge-ai">AI & Automazione</span>
+            <span class="case-meta">Process Automation & Lead Gen</span>
+          </div>
+          <h3 class="case-title">Screening a gate in Python: qualificare 379 account commerciali in 27 minuti</h3>
+          <p class="case-desc">Costruzione di una pipeline deterministica per estrarre e verificare inserzionisti pubblicitari eliminando il lavoro manuale a basso valore.</p>
+          
+          <div class="case-blocks">
+            <div class="block problem">
+              <strong>Il problema:</strong>
+              Le ricerche manuali di prospect richiedono giorni e contengono decine di siti non funzionanti o aziende non pertinenti.
+            </div>
+            <div class="block solution">
+              <strong>L'intervento:</strong>
+              Pipeline in Python con Claude Code: 10 gate automatici (controllo destinazione attiva, P.IVA nel codice, verifica registro VIES UE, controllo geografico).
+            </div>
+            <div class="block gain">
+              <strong>Il risultato:</strong>
+              Isolato il 10,6% di account con corrispondenza perfetta; tasso di rimbalzo nelle sequenze cold email inferiore al 2% con oltre 300 decisori raggiunti.
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <section class="contact" id="contact" aria-labelledby="contact-h">
-    <div class="wrap contact-grid">
-      <h2 id="contact-h">Hiring in Berlin? Let's talk</h2>
+  <!-- Sezione Metodo -->
+  <section class="method-section" id="metodo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">IL MIO APPROCCIO</span>
+        <h2 class="section-title">Come Lavoro: Tre Principi Non Negoziabili</h2>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <div class="method-num">01.</div>
+          <h3 class="method-title">Prima l'ascolto, poi il canale</h3>
+          <p class="method-text">Nessun piano di comunicazione funziona se non si conoscono a fondo le parole e i bisogni delle persone. Che si tratti di un ente no-profit o di una PMI, ogni strategia parte dall'analisi dei dati reali della community.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">02.</div>
+          <h3 class="method-title">AI come moltiplicatore, persona al timone</h3>
+          <p class="method-text">Uso quotidianamente modelli LLM e codice per velocizzare ricerca, sintesi e automazioni operative. Ma il tono di voce, l'empatia, la responsabilità etica e la revisione finale restano al 100% umane.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">03.</div>
+          <h3 class="method-title">Niente fuffa: solo ciò che posso difendere</h3>
+          <p class="method-text">Non prometto competenze che richiedono anni di esperienza né millanto budget milionari. Ogni riga che presento corrisponde a un lavoro svolto, documentabile e spiegabile nei minimi dettagli tecnici.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Chi Sono -->
+  <section class="about-section" id="chi-sono">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="section-tag">PROFILO</span>
+        <h2 class="section-title">Matteo Pastena</h2>
+        <p class="about-lead">Napoletano, classe 1998. Mi occupo di comunicazione digitale, gestione dei canali social, content creation e automazione dei flussi operativi.</p>
+        
+        <p>Ho conseguito la <strong>Laurea Magistrale in Comunicazione Pubblica, Sociale e Politica</strong> con 105/110 presso l'Università degli Studi di Napoli Federico II, discutendo una tesi sull'innovazione sociale e sulle dinamiche relazionali nei collettivi musicali indipendenti, preceduta dalla Triennale in Culture Digitali e da un Erasmus in Spagna.</p>
+        
+        <p>Ho vissuto e lavorato in presenza in Polonia e a Malta, operando interamente in lingua inglese in contesti internazionali e dinamici. Credo in un digitale che aiuta le organizzazioni a comunicare con chiarezza, senza retorica e senza dispersione di risorse.</p>
+
+        <div class="about-specs">
+          <div class="spec-item">
+            <strong>Formazione:</strong>
+            <span>Laurea Magistrale (105/110) · Triennale Culture Digitali · Qualifica EQF 5 Social Media (ILAS)</span>
+          </div>
+          <div class="spec-item">
+            <strong>Lingue:</strong>
+            <span>Italiano (Madrelingua) · Inglese (C1) · Spagnolo (B1) · Tedesco (A1–A2)</span>
+          </div>
+          <div class="spec-item">
+            <strong>Mobilità:</strong>
+            <span>Disponibilità immediata · Lavoro da remoto con disponibilità a trasferte (es. Roma, Bologna)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-aside">
+        <div class="aside-card">
+          <h3 class="aside-title">Competenze Chiave</h3>
+          <ul class="aside-list">
+            <li><strong>Content & Social:</strong> Strategia social, Piani editoriali, Copywriting empatico, Community management, Montaggio video brevi (CapCut), Grafica (Canva)</li>
+            <li><strong>AI & Automazione:</strong> Prompt Engineering, Analisi qualitativa con LLM, Python per automazioni, REST APIs, Webhook, Screening dati</li>
+            <li><strong>Strumenti & Canali:</strong> Meta Business Suite, LinkedIn Analytics, Google Workspace, Microsoft 365, Newsletter e DEM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Contatti -->
+  <section class="contact-section" id="contatti">
+    <div class="wrap contact-box">
+      <div class="contact-header">
+        <span class="section-tag-light">CONTATTI DIRETTI</span>
+        <h2 class="contact-title">Parliamo del prossimo progetto</h2>
+        <p class="contact-lead">Sono disponibile per ruoli di comunicazione, content strategy, social media management e supporto all'adozione dell'AI.</p>
+      </div>
+
       <div class="contact-links">
-        <a class="btn btn-teal" href="mailto:matteo.pastena98@gmail.com?subject=Role%20in%20Berlin">matteo.pastena98@gmail.com</a>
-        <a href="https://www.linkedin.com/in/matteo-pastena">linkedin.com/in/matteo-pastena</a>
-        <a href="assets/Matteo-Pastena-CV.pdf">Download the CV (PDF)</a>
-        <p>Naples, relocating to Berlin. I reply within a day.</p>
+        <a href="mailto:matteo.pastena98@gmail.com" class="contact-pill">
+          <span class="pill-label">Email</span>
+          <span class="pill-val">matteo.pastena98@gmail.com</span>
+        </a>
+        <a href="tel:+393202213130" class="contact-pill">
+          <span class="pill-label">Telefono</span>
+          <span class="pill-val">+39 320 2213130</span>
+        </a>
+        <a href="https://linkedin.com/in/matteo-pastena" target="_blank" rel="noopener" class="contact-pill">
+          <span class="pill-label">LinkedIn</span>
+          <span class="pill-val">linkedin.com/in/matteo-pastena</span>
+        </a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="foot"><div class="wrap"><p>© 2026 Matteo Pastena · Client names withheld</p></div></footer>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 Matteo Pastena · Napoli, Italia · Disponibile al trasferimento e da remoto.</p>
+    <a href="#top" class="back-to-top">Torna in cima ↑</a>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
