@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Pastena — AI content and front-end</title>
+<meta name="description" content="Matteo Pastena turns technical prototypes into client-ready visuals, video and small front-ends. Portfolio for an AI content and front-end role.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="word" href="#top">Matteo Pastena</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#automation">Automation</a>
+    <a href="#video">Video</a>
+    <a href="#more">What else</a>
+    <a class="bar-cta" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO: name split to corners, paper panel + moving picture -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-paper">
+    <h1 id="h1"><span class="first">Matteo</span> <span class="second">Pastena</span></h1>
+    <div class="hero-copy">
+      <p class="hero-line">AI content and front-end. I turn working prototypes into visuals, video and demos a client can follow.</p>
+      <a class="btn" href="#work">See the work</a>
+    </div>
+    <ul class="hero-links">
+      <li><a href="#automation">Automation, made visible</a></li>
+      <li><a href="#video">Video and motion</a></li>
+      <li><a href="#contact">Madrid, available now</a></li>
+    </ul>
+  </div>
+  <figure class="hero-pic">
+    <video src="assets/teaser-secret-lab.mp4" poster="assets/teaser-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Motion teaser for the Secret Lab III night, an AI image turned into a camera move"></video>
+  </figure>
+</section>
+
+<!-- INTRO: pinned statement, three pictures pass -->
+<section class="intro" aria-labelledby="intro-h">
+  <h2 id="intro-h" class="sr">What I do</h2>
+  <div class="intro-pin">
+    <p>Engineers build things that work. I make them easy to present, reuse and put in front of a client.</p>
+  </div>
+  <div class="intro-pics">
+    <figure class="ip ip-a"><img src="assets/explainer-poster.webp" alt="Funnel scene from the pipeline explainer video" width="1280" height="720" loading="lazy"><figcaption>A Python run, as a funnel a partner can explain.</figcaption></figure>
+    <figure class="ip ip-b"><img src="assets/storyboard.webp" alt="Six-beat storyboard for a 15-second teaser" width="1600" height="1066" loading="lazy"><figcaption>A brief, as a six-beat storyboard.</figcaption></figure>
+    <figure class="ip ip-c"><img src="assets/sl-v128.webp" alt="Secret Lab III print poster" width="900" height="1273" loading="lazy"><figcaption>An AI image, as a print-ready poster.</figcaption></figure>
+  </div>
+</section>
+
+<!-- WORK: full panels, one midline row -->
+<section class="work" id="work" aria-labelledby="work-h">
+  <h2 id="work-h" class="sr">Selected work</h2>
+  <article class="panel site" style="--tone:#E9E1D2">
+    <img src="assets/site-pastena.webp" alt="Home page of the PastéNa website: Spacciatori di Carboidrati" width="1400" height="875" loading="lazy">
+    <div class="row"><span>2026</span><h3>PastéNa website</h3><span>Live since May, Naples</span></div>
+  </article>
+  <article class="panel site" style="--tone:#1C1C1E">
+    <img src="assets/site-blend.webp" alt="Blend Burgers redesign: Il miglior burger di Napoli?" width="1400" height="875" loading="lazy">
+    <div class="row"><span>2026</span><h3>Blend redesign</h3><span>Redesign concept, not launched</span></div>
+  </article>
+  <article class="panel tall" style="--pos:50% 40%">
+    <img src="assets/sept-two-currents.webp" alt="Discotti second birthday poster, 19 September" width="1080" height="1350" loading="lazy">
+    <div class="row"><span>19 Sep 2026</span><h3>Discotti, 2nd birthday</h3><span>Poster and story set</span></div>
+  </article>
+  <article class="panel tall" style="--pos:50% 45%">
+    <img src="assets/sl-v128.webp" alt="Secret Lab III poster, final print master" width="900" height="1273" loading="lazy">
+    <div class="row"><span>19 Dec 2026</span><h3>Secret Lab III</h3><span>A3 and A5 print, 600 dpi</span></div>
+  </article>
+  <article class="panel light" style="--pos:50% 20%">
+    <img src="assets/menu-pastena.webp" alt="PastéNa menu: classics, veggies, specials" width="1200" height="373" loading="lazy">
+    <div class="row"><span>2026</span><h3>PastéNa menu</h3><span>Pasta bar, Naples</span></div>
+  </article>
+  <article class="panel light" style="--pos:50% 30%">
+    <img src="assets/menu-azura.webp" alt="Azura pool and bar restaurant menu" width="1400" height="875" loading="lazy">
+    <div class="row"><span>2026</span><h3>Azura menu</h3><span>Pool bar, Malta</span></div>
+  </article>
+</section>
+
+<!-- AUTOMATION: the live thing -->
+<section class="auto" id="automation" aria-labelledby="auto-h">
+  <div class="auto-head">
+    <h2 id="auto-h">Automation, made visible</h2>
+    <p>I built a Python pipeline with Claude Code that screens Meta advertisers through ten checks. Then I made it presentable: the same run, read two ways.</p>
+  </div>
+
+  <ol class="flow" aria-label="The pipeline, from ads to a call list">
+    <li><b>379 ads</b><span>pulled from the Meta Ad Library</span></li>
+    <li><b>116 sites</b><span>reached and saved as evidence</span></li>
+    <li class="dark"><b>10 checks</b><span>VAT, region and contact re-read from the source</span></li>
+    <li class="blue"><b>10.6%</b><span>ready to call, in about 27 minutes</span></li>
+  </ol>
+
+  <div class="demo" data-view="partner">
+    <div class="demo-top">
+      <div class="seg" role="tablist" aria-label="Choose how to read the run">
+        <button role="tab" aria-selected="false" data-set="engineer">As the engineer sees it</button>
+        <button role="tab" aria-selected="true" data-set="partner">As a partner presents it</button>
+      </div>
+      <button class="replay" type="button">Replay</button>
+    </div>
+    <pre class="log"><code>$ python workchain.py --pass 1
+[F1] ads collected, 18 keywords ...... 379
+[F1] ad has a destination ............ 348
+[F2] unique landing domains .......... 127
+[F3] site reached, HTTP logged ....... 116
+[F4] VAT re-read, VIES checked ....... W4 OK
+[F4] region proven, never guessed .... W5 OK
+[F8] deliverable share ............... 10.6%
+[W1–W10] 10/10 gates green, exit 0</code></pre>
+    <div class="funnel">
+      <div class="f"><span>Meta ads screened</span><i style="--w:100%"></i><b>379</b></div>
+      <div class="f"><span>Ad points to a site</span><i style="--w:91.8%"></i><b>348</b></div>
+      <div class="f"><span>Unique companies</span><i style="--w:33.5%"></i><b>127</b></div>
+      <div class="f"><span>Website reached</span><i style="--w:30.6%"></i><b>116</b></div>
+      <div class="f end"><span>Qualified</span><i style="--w:10.6%"></i><b>10.6%</b></div>
+      <p class="insight">On the same 116 companies, 1 decision-maker email could be verified and 78 published a phone number. The plan switched to calling.</p>
+    </div>
+  </div>
+
+  <div class="auto-video">
+    <video src="assets/explainer-pipeline.mp4" poster="assets/explainer-poster.webp" controls muted playsinline preload="none">
+      <track kind="captions" src="assets/explainer-pipeline.vtt" srclang="en" label="English" default>
+    </video>
+    <p>The same story as a 51-second explainer: six scenes coded in HTML and cut with ffmpeg from a script, so it re-renders when the numbers change. Client name and records removed.</p>
+  </div>
+</section>
+
+<!-- VIDEO: cards crossing a held picture -->
+<section class="reel" id="video" aria-labelledby="video-h">
+  <div class="reel-stage">
+    <img class="reel-bg" src="assets/storyboard.webp" alt="" width="1600" height="1066" loading="lazy">
+    <h2 id="video-h">Video and motion</h2>
+    <div class="track">
+      <article class="card" style="--tone:#032051">
+        <video src="assets/teaser-secret-lab.mp4" poster="assets/teaser-poster.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Secret Lab teaser</h3><p>AI image into a 15-second camera move, rendered from code.</p></div>
+      </article>
+      <article class="card" style="--tone:#3D3C37">
+        <video class="wide" src="assets/explainer-pipeline.mp4" poster="assets/explainer-poster.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Pipeline explainer</h3><p>Technical result as a 51-second story.</p></div>
+      </article>
+      <article class="card" style="--tone:#5A1F3A">
+        <video src="assets/reel-beter.mp4" poster="assets/reel-beter.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Beter, spec reel</h3><p>Feed data turned into a hook for a hair-care brand.</p></div>
+      </article>
+      <article class="card" style="--tone:#6B1420">
+        <video src="assets/reel-lifenergy.mp4" poster="assets/reel-lifenergy.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Lifenergy, spec reel</h3><p>Three numbers every gym owner should know.</p></div>
+      </article>
+      <article class="card" style="--tone:#7A1550">
+        <video src="assets/reel-komen.mp4" poster="assets/reel-komen.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Komen Italia, concept</h3><p>Kinetic type for a screening reminder.</p></div>
+      </article>
+      <article class="card" style="--tone:#4A4030">
+        <video src="assets/reel-estrid.mp4" poster="assets/reel-estrid.webp" muted loop playsinline preload="none"></video>
+        <div class="card-text"><h3>Estrid, spec hook</h3><p>A six-second opener on stock footage.</p></div>
+      </article>
+    </div>
+  </div>
+  <p class="reel-note">Spec reels were made for applications and were not commissioned by the brands.</p>
+</section>
+
+<!-- GALLERY: one frame, contents change -->
+<section class="versions" aria-labelledby="ver-h">
+  <div class="ver-text">
+    <h2 id="ver-h">128 versions, one poster</h2>
+    <p>For Secret Lab III I took the brief from a group chat to print. AI generation for the base, then layout, lettering and fixes by hand. Every version is kept with the reason it changed.</p>
+    <label class="ver-label" for="v-range">Scrub the versions</label>
+    <input id="v-range" type="range" min="0" max="4" step="1" value="0">
+  </div>
+  <figure class="ver-frame">
+    <button type="button" class="ver-btn" aria-label="Next version">
+      <img id="v-img" src="assets/sl-v007.webp" alt="Secret Lab III poster, version 7" width="900" height="1125" loading="lazy">
+    </button>
+    <figcaption id="v-cap">v007. First composition on the base the collective chose.</figcaption>
+  </figure>
+</section>
+
+<!-- HOW: one verb at a time -->
+<section class="how" aria-labelledby="how-h">
+  <h2 id="how-h" class="sr">How I work</h2>
+  <div class="verb" style="--img:url('assets/storyboard.webp')"><p class="v">Brief</p><p class="say">Read what the engineers built and who has to present it.</p></div>
+  <div class="verb" style="--img:url('assets/sl-v022.webp')"><p class="v">Draft</p><p class="say">A first version fast, with AI doing the heavy lifting.</p></div>
+  <div class="verb" style="--img:url('assets/sl-v111.webp')"><p class="v">Refine</p><p class="say">Feedback rounds, by hand, until it reads at phone size.</p></div>
+  <div class="verb" style="--img:url('assets/fuori-sede.webp')"><p class="v">Reuse</p><p class="say">Hand over a kit: editable files, fonts, captions.</p></div>
+</section>
+
+<!-- LIST: what else I can do -->
+<section class="more" id="more" aria-labelledby="more-h">
+  <figure class="more-pic"><img id="m-img" src="assets/explainer-poster.webp" alt="" width="1280" height="720" loading="lazy"></figure>
+  <div class="more-list">
+    <h2 id="more-h">What else I can make for WAVE</h2>
+    <ul>
+      <li class="on" data-img="explainer-poster"><button type="button"><span>Explainers from demos</span><em>MP4 + captions</em></button>
+        <p>A working prototype becomes a 60-second video with captions, rebuilt from code whenever the numbers change.</p></li>
+      <li data-img="site-blend"><button type="button"><span>Click-through demo front-ends</span><em>HTML</em></button>
+        <p>A clean page a partner can open in a meeting, built with AI support on plain HTML or the team's stack.</p></li>
+      <li data-img="sl-v033"><button type="button"><span>Key art for proposals</span><em>PNG, PDF</em></button>
+        <p>AI-generated visuals finished by hand, in the firm's palette, sized for decks, posts and print.</p></li>
+      <li data-img="fuori-sede"><button type="button"><span>Reusable case kits</span><em>SVG, fonts, copy</em></button>
+        <p>Editable templates for case studies and offers, so other teams can make the next one without me.</p></li>
+      <li data-img="reel-beter"><button type="button"><span>Social cut-downs</span><em>9:16, 4:5, 1:1</em></button>
+        <p>One asset cut into reels, stories and carousels for LinkedIn and internal channels.</p></li>
+      <li data-img="menu-azura"><button type="button"><span>Print and event collateral</span><em>print PDF</em></button>
+        <p>Menus, posters and handouts delivered print-ready, with the source files.</p></li>
+      <li data-img="storyboard"><button type="button"><span>Research to one-pager</span><em>script + page</em></button>
+        <p>Scripts that gather and check sources, then a page that states the finding and the decision.</p></li>
+    </ul>
+    <p class="more-note">Avatars and podcast formats are next on my list. They are not in my portfolio yet, so I don't claim them.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" aria-labelledby="about-h">
+  <h2 id="about-h">About</h2>
+  <div class="about-grid">
+    <p class="about-lead">My thesis was on independent music collectives. Now I design for one.</p>
+    <dl>
+      <div><dt>Recent</dt><dd>Social media manager (seasonal) at Wave Events, Malta, Jun–Oct 2026: English-language content for nightlife and festivals, reels cut in CapCut the same evening.</dd></div>
+      <div><dt>Before</dt><dd>Marketing and copywriting internship at Crafton Agency, Poznań, Jan–May 2026: SEO articles, social copy, B2B outreach in English.</dd></div>
+      <div><dt>Study</dt><dd>MA Public, Social and Political Communication, University of Naples Federico II, 105/110, with Erasmus+ in A Coruña.</dd></div>
+      <div><dt>Languages</dt><dd>Italian native, English C1, Spanish B1.</dd></div>
+      <div><dt>Based</dt><dd>Naples, Italy. EU citizen, ready to relocate to Madrid, available immediately.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <h2 id="contact-h">Write to me about the role, or send a prototype you want made presentable.</h2>
+  <a class="mail" href="mailto:matteo.pastena98@gmail.com?subject=WAVE%20portfolio">matteo.pastena98@<wbr>gmail.com</a>
+  <div class="contact-foot">
+    <span>Naples, Italy</span>
+    <a href="https://linkedin.com/in/matteo-pastena" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>Personal portfolio, not affiliated with Oliver Wyman or Marsh.</span>
+  <span><a href="#work">Work</a><a href="#video">Video</a><a href="#contact">Contact</a></span>
+  <span>2026</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
